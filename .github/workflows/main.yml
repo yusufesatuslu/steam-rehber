@@ -1,0 +1,31 @@
+name: Steam Farm Bot
+on:
+  schedule:
+    - cron: '0 */6 * * *' # Her 6 saatte bir otomatik çalışır
+  workflow_dispatch: # Manuel çalıştırma düğmesi ekler
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kodları Çek
+        uses: actions/checkout@v2
+
+      - name: Python Kur
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
+      - name: Kütüphaneleri Kur
+        run: pip install requests beautifulsoup4
+
+      - name: Botu Çalıştır
+        run: python scraper.py
+
+      - name: Değişiklikleri Kaydet ve Yükle
+        run: |
+          git config --global user.name 'GitHub Action Bot'
+          git config --global user.email 'action@github.com'
+          git add data.json
+          git commit -m "Otomatik veri güncelleme: $(date)" || exit 0
+          git push
