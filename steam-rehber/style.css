@@ -1,0 +1,65 @@
+:root {
+    --bg-dark: #1b2838;
+    --bg-card: #2a475e;
+    --accent: #66c0f4;
+    --text: #c7d5e0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 5%;
+    background: rgba(0,0,0,0.5);
+}
+
+.logo span { color: var(--accent); font-weight: bold; }
+
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(rgba(27,40,56,0.8), rgba(27,40,56,0.8)), url('https://source.unsplash.com/1600x900/?gaming');
+    background-size: cover;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 40px 5%;
+}
+
+.card {
+    background: var(--bg-card);
+    padding: 20px;
+    border-radius: 10px;
+    border-bottom: 3px solid var(--accent);
+    transition: 0.3s;
+}
+
+.card:hover { transform: translateY(-5px); }
+
+.adsense-slot {
+    background: #111;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 5%;
+    border: 1px dashed #444;
+}
+
+.btn {
+    background: var(--accent);
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
